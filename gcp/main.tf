@@ -1,6 +1,6 @@
 
 provider "google" {
-  project = "{{ secrets.GCP_PROJECT_ID }}"
+  project = "gcp-terraform-teamplates"
   region  = "us-central1"
   zone    = "us-central1-c"
 }

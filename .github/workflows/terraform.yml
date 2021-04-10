@@ -11,6 +11,7 @@ jobs:
     name: 'Terraform'
     env:
       GOOGLE_CREDENTIALS: ${{ secrets.GCP_TERRAFORM_SA }}
+      GCP_PROJECT_ID: ${{ secrets.GCP_PROJECT_ID }}
     runs-on: ubuntu-latest
     container:
       image: hashicorp/terraform:0.14.10
