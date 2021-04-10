@@ -12,3 +12,8 @@ resource "google_storage_bucket" "gcs_bucket_0" {
 resource "google_storage_bucket" "gcs_bucket_1" {
   name = "test-bucket-random-11111"
 }
+
+
+resource "google_storage_bucket" "gcs_bucket_2" {
+  name = "test-bucket-random-22222"
+}
