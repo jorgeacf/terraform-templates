@@ -10,10 +10,7 @@ jobs:
   terraform:
     name: 'Terraform'
     env:
-      ARM_CLIENT_ID: ${{ secrets.AZURE_AD_CLIENT_ID }}
-      ARM_CLIENT_SECRET: ${{ secrets.AZURE_AD_CLIENT_SECRET }}
-      ARM_SUBSCRIPTION_ID: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
-      ARM_TENANT_ID: ${{ secrets.AZURE_AD_TENANT_ID }}
+      GOOGLE_CREDENTIALS: ${{ secrets.GCP_TERRAFORM_SA }}
     runs-on: ubuntu-latest
     environment: production
 
@@ -55,9 +52,6 @@ jobs:
         tf_actions_subcommand: 'plan'
         tf_actions_working_dir: "./terraform"
 
-    - name: Show created containers (remove this)
-      run: docker ps
-
     - name: Terraform Apply
       if: github.ref == 'refs/heads/main'
       uses: hashicorp/terraform-github-actions@master
@@ -65,6 +59,3 @@ jobs:
         tf_actions_version: 0.14.8
         tf_actions_subcommand: 'apply'
         tf_actions_working_dir: "./terraform"
-
-    - name: Show created containers (remove this)
-      run: docker ps
