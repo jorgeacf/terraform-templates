@@ -12,6 +12,8 @@ jobs:
     env:
       GOOGLE_CREDENTIALS: ${{ secrets.GCP_TERRAFORM_SA }}
     runs-on: ubuntu-latest
+    container:
+      image: hashicorp/terraform:0.14.10
     environment: production
 
     # Use the Bash shell regardless whether the GitHub Actions runner is ubuntu-latest, macos-latest, or windows-latest
@@ -20,23 +22,9 @@ jobs:
         shell: bash
 
     steps:
-    - uses: actions/checkout@v2
-    - uses: hashicorp/setup-terraform@v0.14.8
-      with:
-        terraform_version: 0.14.8
-      
-    - name: Terraform fmt
-      id: fmt
-      run: terraform fmt -recursive
+    # Checkout the repository to the GitHub Actions runner
+    - name: Checkout
+      uses: actions/checkout@v2
 
-    - name: Terraform Init
-      id: init
-      run: terraform init -no-color
-
-    - name: Terraform Validate
-      id: validate
-      run: terraform validate -no-color
-
-    - name: Terraform Plan
-      id: plan
-      run: terraform plan -no-color
+    - name: 'Terraform Format'
+      run: terraform --version
