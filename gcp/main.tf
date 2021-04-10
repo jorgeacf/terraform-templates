@@ -5,6 +5,14 @@ provider "google" {
   zone    = "us-central1-c"
 }
 
+data "terraform_remote_state" "terraform_remote_state_files" {
+  backend = "gcs"
+  config = {
+    bucket  = "terraform-state-jf"
+    prefix  = "prod"
+  }
+}
+
 resource "google_storage_bucket" "gcs_bucket_0" {
   name = "test-bucket-random-000000"
 }
