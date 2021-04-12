@@ -49,3 +49,7 @@ jobs:
     - name: Terraform Apply
       id: apply
       run: terraform apply -auto-approve -no-color
+
+    - name: Check files
+      id: check-files
+      run: ls -al
