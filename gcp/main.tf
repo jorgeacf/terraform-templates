@@ -5,15 +5,10 @@ provider "google" {
   zone    = "us-central1-c"
 }
 
-resource "google_storage_bucket" "gcs_bucket_0" {
-  name = "test-bucket-random-000000"
+module "cloud-functions" {
+  source = "./cloud-functions"
 }
 
-resource "google_storage_bucket" "gcs_bucket_1" {
-  name = "test-bucket-random-111111"
-}
-
-
-resource "google_storage_bucket" "gcs_bucket_2" {
-  name = "test-bucket-random-222222"
+module "gcs" {
+  source = "./gcs"
 }
