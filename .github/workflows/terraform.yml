@@ -34,6 +34,7 @@ jobs:
       run: |
         wget -P gcp/cloud-functions https://github.com/jorgeacf/gcp-examples/releases/download/latest/cloud-functions-java-release.zip
         unzip -d gcp/cloud-functions gcp/cloud-functions/cloud-functions-java-release.zip
+        ls -al gcp/cloud-functions
 
     - name: Terraform fmt
       id: fmt
