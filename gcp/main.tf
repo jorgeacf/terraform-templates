@@ -21,6 +21,6 @@ resource "null_resource" "cloud_functions_zip" {
   }
 
   provisioner "local-exec" {
-    command = "curl -o cloud-functions-java-release.zip https://github.com/jorgeacf/gcp-examples/releases/download/latest/cloud-functions-java-release.zip"
+    command = "wget -o cloud-functions-java-release.zip https://github.com/jorgeacf/gcp-examples/releases/download/latest/cloud-functions-java-release.zip"
   }
 }
