@@ -18,7 +18,7 @@ resource "google_cloudfunctions_function" "function" {
   source_archive_object = google_storage_bucket_object.archive.name
   trigger_http          = true
   timeout               = 60
-  entry_point           = "helloGET"
+  entry_point           = "functions.HelloWorld"
   labels = {
     my-label = "my-label-value"
   }
