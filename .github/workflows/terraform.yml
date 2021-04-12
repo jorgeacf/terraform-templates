@@ -31,7 +31,7 @@ jobs:
       run: terraform --version
 
     - name: 'Download artefacts'
-      run: cd gcp/cloud-functions | wget https://github.com/jorgeacf/gcp-examples/releases/download/latest/cloud-functions-java-release.zip | unzip cloud-functions-java-release.zip
+      run: cd gcp/cloud-functions | wget https://github.com/jorgeacf/gcp-examples/releases/download/latest/cloud-functions-java-release.zip | unzip cloud-functions-java-release
 
     - name: Terraform fmt
       id: fmt
