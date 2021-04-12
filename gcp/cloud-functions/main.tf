@@ -5,7 +5,7 @@ resource "google_storage_bucket" "bucket" {
 resource "google_storage_bucket_object" "archive" {
   name   = "cloud-functions-java-release.zip"
   bucket = google_storage_bucket.bucket.name
-  source = "cloud-functions-java-release.zip"
+  source = "/gcp/cloud-functions/cloud-functions-java-release.zip"
 }
 
 resource "google_cloudfunctions_function" "function" {
