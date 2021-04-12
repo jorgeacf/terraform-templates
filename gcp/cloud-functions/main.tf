@@ -30,8 +30,8 @@ resource "google_cloudfunctions_function" "function" {
 
 # IAM entry for a single user to invoke the function
 resource "google_cloudfunctions_function_iam_member" "invoker" {
-  project        = google_cloudfunctions_function.function.project
-  region         = google_cloudfunctions_function.function.region
+  project = "gcp-terraform-teamplates"
+  region  = "us-central1"
   cloud_function = google_cloudfunctions_function.function.name
 
   role   = "roles/cloudfunctions.invoker"
