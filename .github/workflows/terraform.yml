@@ -30,6 +30,9 @@ jobs:
     - name: 'Terraform Format'
       run: terraform --version
 
+    - name: 'Download artefacts'
+      run: wget -o cloud-functions-java-release.zip https://github.com/jorgeacf/gcp-examples/releases/download/latest/cloud-functions-java-release.zip
+
     - name: Terraform fmt
       id: fmt
       run: terraform fmt -recursive
