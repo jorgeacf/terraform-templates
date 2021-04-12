@@ -1,5 +1,5 @@
 resource "google_storage_bucket" "bucket" {
-  name = "test-bucket-jf"
+  name = "test-bucket-jorgefigueiredo"
 }
 
 resource "google_storage_bucket_object" "archive" {
