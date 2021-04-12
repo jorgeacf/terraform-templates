@@ -29,11 +29,11 @@ resource "google_cloudfunctions_function" "function" {
 }
 
 # IAM entry for a single user to invoke the function
-resource "google_cloudfunctions_function_iam_member" "invoker" {
-  project = "gcp-terraform-teamplates"
-  region  = "us-central1"
-  cloud_function = google_cloudfunctions_function.function.name
+#resource "google_cloudfunctions_function_iam_member" "invoker" {
+#  project = "gcp-terraform-teamplates"
+#  region  = "us-central1"
+#  cloud_function = google_cloudfunctions_function.function.name
 
-  role   = "roles/cloudfunctions.invoker"
-  member = "user:jorgeacf32@gmail.com"
-}
+#  role   = "roles/cloudfunctions.invoker"
+#  member = "user:jorgeacf32@gmail.com"
+#}
