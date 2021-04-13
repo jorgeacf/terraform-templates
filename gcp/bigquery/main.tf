@@ -1,4 +1,10 @@
 
+resource "google_project_service" "project" {
+  project = "gcp-terraform-teamplates"
+  service = "iam.googleapis.com"
+}
+
+
 resource "google_bigquery_dataset" "dataset" {
   dataset_id                  = "example_dataset"
   friendly_name               = "test"
