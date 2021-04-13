@@ -1,6 +1,11 @@
 
 resource "google_project_service" "project" {
   project = "gcp-terraform-teamplates"
+  service = "cloudresourcemanager.googleapis.com"
+}
+
+resource "google_project_service" "project" {
+  project = "gcp-terraform-teamplates"
   service = "iam.googleapis.com"
 }
 
