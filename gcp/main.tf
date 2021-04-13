@@ -5,6 +5,10 @@ provider "google" {
   zone    = "us-central1-c"
 }
 
+module "bigquery" {
+  source = "./bigquery"
+}
+
 module "cloud-functions" {
   source = "./cloud-functions"
 }
