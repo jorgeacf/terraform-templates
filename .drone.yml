@@ -4,6 +4,10 @@ kind: pipeline
 type: docker
 name: default
 
+environment:
+  GCP_TERRAFORM_SA: $GCP_TERRAFORM_SA
+  GCP_PROJECT_ID: $GCP_PROJECT_ID
+
 steps:
 - name: Download artefacts
   image: hashicorp/terraform:0.14.10
