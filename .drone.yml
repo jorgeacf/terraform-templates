@@ -22,7 +22,7 @@ steps:
   commands:
   - terraform init
   environment:
-    GOOGLE_APPLICATION_CREDENTIALS:
+    GOOGLE_CREDENTIALS:
       from_secret: GCP_TERRAFORM_SA
     GCP_PROJECT_ID:
       from_secret: GCP_PROJECT_ID
@@ -32,7 +32,7 @@ steps:
   commands:
   - terraform validate -no-color
   environment:
-    GOOGLE_APPLICATION_CREDENTIALS:
+    GOOGLE_CREDENTIALS:
       from_secret: GCP_TERRAFORM_SA
     GCP_PROJECT_ID:
       from_secret: GCP_PROJECT_ID
@@ -42,7 +42,7 @@ steps:
   commands:
   - terraform plan -no-color
   environment:
-    GOOGLE_APPLICATION_CREDENTIALS:
+    GOOGLE_CREDENTIALS:
       from_secret: GCP_TERRAFORM_SA
     GCP_PROJECT_ID:
       from_secret: GCP_PROJECT_ID
@@ -52,7 +52,7 @@ steps:
   commands:
   - terraform apply -auto-approve -no-color
   environment:
-    GOOGLE_APPLICATION_CREDENTIALS:
+    GOOGLE_CREDENTIALS:
       from_secret: GCP_TERRAFORM_SA
     GCP_PROJECT_ID:
       from_secret: GCP_PROJECT_ID
