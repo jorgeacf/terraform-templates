@@ -10,6 +10,14 @@ steps:
       echo "$BRANCH_NAME"
       echo "***********************"
 
+- id: 'tf fmt'
+  name: 'hashicorp/terraform:0.14.10'
+  entrypoint: 'sh'
+  args: 
+  - '-c'
+  - |
+      terraform fmt -recursive
+
 - id: 'tf init'
   name: 'hashicorp/terraform:0.14.10'
   entrypoint: 'sh'
@@ -17,3 +25,27 @@ steps:
   - '-c'
   - |
       terraform init
+
+- id: 'tf validate'
+  name: 'hashicorp/terraform:0.14.10'
+  entrypoint: 'sh'
+  args: 
+  - '-c'
+  - |
+      terraform validate -no-color
+
+- id: 'tf plan'
+  name: 'hashicorp/terraform:0.14.10'
+  entrypoint: 'sh'
+  args: 
+  - '-c'
+  - |
+      terraform plan -no-color
+
+- id: 'tf apply'
+  name: 'hashicorp/terraform:0.14.10'
+  entrypoint: 'sh'
+  args: 
+  - '-c'
+  - |
+      terraform apply -auto-approve -no-color
