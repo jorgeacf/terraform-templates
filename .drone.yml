@@ -5,8 +5,10 @@ type: docker
 name: default
 
 environment:
-  GCP_TERRAFORM_SA: $GCP_TERRAFORM_SA
-  GCP_PROJECT_ID: $GCP_PROJECT_ID
+  GCP_TERRAFORM_SA:
+    from_secret: GCP_TERRAFORM_SA
+  GCP_PROJECT_ID:
+    from_secret: GCP_PROJECT_ID
 
 steps:
 - name: Download artefacts
