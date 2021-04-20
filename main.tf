@@ -6,10 +6,10 @@ terraform {
   }
 }
 
- module "docker" {
-   source = "./docker"
- }
+# module "docker" {
+# 	source = "./docker"
+# }
 
 module "gcp" {
-  source = "./gcp"
+	source = "./gcp"
 }
