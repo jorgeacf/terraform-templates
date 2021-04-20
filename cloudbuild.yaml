@@ -43,13 +43,13 @@ steps:
   - |
       terraform validate -no-color
 
-#- id: 'tf plan'
-#  name: 'hashicorp/terraform:0.14.10'
-#  entrypoint: 'sh'
-#  args: 
-#  - '-c'
-#  - |
-#      terraform plan -no-color
+- id: 'tf plan'
+  name: 'hashicorp/terraform:0.14.10'
+  entrypoint: 'sh'
+  args: 
+  - '-c'
+  - |
+      terraform plan -no-color
 
 - id: 'tf apply'
   name: 'hashicorp/terraform:0.14.10'
