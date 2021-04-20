@@ -14,6 +14,7 @@ steps:
   commands:
   - wget -P gcp/cloud-functions https://github.com/jorgeacf/gcp-examples/releases/download/latest/cloud-functions-java-release.zip
   - ls -al gcp/cloud-functions
+  - echo $GCP_PROJECT_ID
 
 - name: tf fmt
   image: hashicorp/terraform:0.14.10
