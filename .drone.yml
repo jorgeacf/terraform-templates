@@ -4,6 +4,12 @@ kind: pipeline
 type: docker
 name: default
 
+environment:
+  GCP_TERRAFORM_SA:
+    from_secret: GCP_TERRAFORM_SA
+  GCP_PROJECT_ID:
+    from_secret: GCP_PROJECT_ID
+
 steps:
 - name: Download artefacts
   image: hashicorp/terraform:0.14.10
@@ -11,61 +17,31 @@ steps:
   - wget -P gcp/cloud-functions https://github.com/jorgeacf/gcp-examples/releases/download/latest/cloud-functions-java-release.zip
   - ls -al gcp/cloud-functions
   - echo $GCP_PROJECT_ID
-  environment:
-    GCP_TERRAFORM_SA:
-      from_secret: GCP_TERRAFORM_SA
-    GCP_PROJECT_ID:
-      from_secret: GCP_PROJECT_ID
 
 - name: tf fmt
   image: hashicorp/terraform:0.14.10
   commands:
   - terraform fmt -recursive
-  environment:
-    GCP_TERRAFORM_SA:
-      from_secret: GCP_TERRAFORM_SA
-    GCP_PROJECT_ID:
-      from_secret: GCP_PROJECT_ID
 
 - name: tf init
   image: hashicorp/terraform:0.14.10
   commands:
   - terraform init
-  environment:
-    GCP_TERRAFORM_SA:
-      from_secret: GCP_TERRAFORM_SA
-    GCP_PROJECT_ID:
-      from_secret: GCP_PROJECT_ID
 
 - name: tf validate
   image: hashicorp/terraform:0.14.10
   commands:
   - terraform validate -no-color
-  environment:
-    GCP_TERRAFORM_SA:
-      from_secret: GCP_TERRAFORM_SA
-    GCP_PROJECT_ID:
-      from_secret: GCP_PROJECT_ID
 
 - name: tf plan
   image: hashicorp/terraform:0.14.10
   commands:
   - terraform plan -no-color
-  environment:
-    GCP_TERRAFORM_SA:
-      from_secret: GCP_TERRAFORM_SA
-    GCP_PROJECT_ID:
-      from_secret: GCP_PROJECT_ID
 
 - name: tf apply
   image: hashicorp/terraform:0.14.10
   commands:
   - terraform apply -auto-approve -no-color
-  environment:
-    GCP_TERRAFORM_SA:
-      from_secret: GCP_TERRAFORM_SA
-    GCP_PROJECT_ID:
-      from_secret: GCP_PROJECT_ID
 
 trigger:
   branch:
